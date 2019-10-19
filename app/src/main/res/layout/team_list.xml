@@ -38,6 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_gravity="center_vertical"
             android:orientation="vertical"
             >
             <TextView
@@ -49,33 +50,6 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 />
-
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gender: "
-                    android:textSize="15sp"
-
-                    />
-
-                <TextView
-                    android:id="@+id/gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginStart="3dp"
-
-                    />
-
-
-            </LinearLayout>
 
             <LinearLayout
 
@@ -103,39 +77,7 @@
 
 
             </LinearLayout>
-            <LinearLayout
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Phone Num: "
-                    android:textSize="15sp"
-
-                    />
-
-                <TextView
-                    android:id="@+id/phone_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+2348106746804"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginStart="3dp"
-
-                    />
-
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="We grow with Google -#growwithgoogle"
-                android:textSize="13sp"
-                />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

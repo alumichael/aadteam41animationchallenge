@@ -75,14 +75,20 @@ public class TeamListFragment extends Fragment implements SwipeRefreshLayout.OnR
     }
 
     private void init() {
-        getHistory();
         mSwipeRefreshLayout.post(() -> mSwipeRefreshLayout.setRefreshing(true));
         mSwipeRefreshLayout.setOnRefreshListener(this);
+        getHistory();
+
     }
 
     @Override
     public void onRefresh() {
         getHistory();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
     }
 
     private void getHistory() {
@@ -124,6 +130,18 @@ public class TeamListFragment extends Fragment implements SwipeRefreshLayout.OnR
 
         Log.i("Re-SuccessSize", String.valueOf(teamModelList.size()));
 
+//stop refresh when done insertion
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                mSwipeRefreshLayout.setRefreshing(false);
+
+            }
+        });
+
+
+
         if (count == 0) {
 
             mSwipeRefreshLayout.setVisibility(View.GONE);
@@ -137,17 +155,6 @@ public class TeamListFragment extends Fragment implements SwipeRefreshLayout.OnR
             teamAdapter = new teamAdapter(getContext(), teamModelList);
             mRecyclerTeamList.setAdapter(teamAdapter);
             teamAdapter.notifyDataSetChanged();
-
-            //stop refresh when done insertion
-            mSwipeRefreshLayout.post(new Runnable() {
-                @Override
-                public void run() {
-
-                    mSwipeRefreshLayout.setRefreshing(false);
-
-                }
-            });
-
 
         }
 

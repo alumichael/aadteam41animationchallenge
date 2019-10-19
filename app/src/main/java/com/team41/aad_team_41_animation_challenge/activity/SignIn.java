@@ -91,11 +91,14 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener{
 
                 //Save on pref and continue to Dashboard
                 mProgress.setVisibility(View.VISIBLE);
+                mSigninBtn.setVisibility(View.GONE);
+
                 String email=mEmailEditxt.getText().toString();
                 userPreferences.setEmail(email);
                 showMessage("Successfully Sign In");
                 Intent intent=new Intent(SignIn.this, MainActivity.class);
                 startActivity(intent);
+                finish();
 
             }
 

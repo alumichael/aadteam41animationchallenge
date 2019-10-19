@@ -61,9 +61,7 @@ public class teamAdapter extends RecyclerView.Adapter<teamAdapter.MyViewHolder> 
         Log.i("teamModel", teamModelOption.getEmail());
 
             holder.mName.setText(teamModelOption.getName());
-            holder.mGender.setText(teamModelOption.getGender());
             holder.mEmail.setText(teamModelOption.getEmail());
-            holder.mPhoneNum.setText(teamModelOption.getPhone_num());
             holder.mStatus.setText(teamModelOption.getStatus());
             String img_url=teamModelOption.getImg();
 
@@ -115,10 +113,6 @@ public class teamAdapter extends RecyclerView.Adapter<teamAdapter.MyViewHolder> 
         TextView mName;
         @BindView(R.id.email_addr)
         TextView mEmail;
-        @BindView(R.id.phone_num)
-        TextView mPhoneNum;
-        @BindView(R.id.gender)
-        TextView mGender;
         @BindView(R.id.status)
         TextView mStatus;
 
