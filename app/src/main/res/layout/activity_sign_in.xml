@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_signIn"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/login_bg"
+        android:scaleType="centerCrop"
+        />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/layout_inner"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/andela_logo"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp"
+                android:alpha="0.8"
+                android:padding="4dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="12dp"
+                android:layout_gravity="center"
+                >
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="4dp"
+                        android:orientation="vertical">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inputLayoutEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            >
+
+                            <EditText
+                                android:id="@+id/email_editxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableEnd="@drawable/ic_email_black_24dp"
+                                android:hint="Email"
+                                android:drawableTint="@color/colorPrimary"
+                                android:inputType="textEmailAddress"
+
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inputLayoutPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            >
+
+                            <EditText
+                                android:id="@+id/password_editxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableEnd="@drawable/ic_vpn_key_black_24dp"
+                                android:hint="Password (at least 6 characters)"
+                                android:drawableTint="@color/colorPrimary"
+                                android:inputType="textPassword"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/signin_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/rounded_bg"
+                            android:text="Sign In"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:visibility="visible" />
+
+                        <com.wang.avi.AVLoadingIndicatorView
+                            android:id="@+id/progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            app:indicatorColor="@color/colorAccent"
+                            app:indicatorName="BallPulseIndicator" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="© 2019 AAD-Team-41."
+                            android:textAlignment="center"
+                            android:textSize="12sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="bottom"
+                            android:layout_margin="15dp"
+                            />
+
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</FrameLayout>

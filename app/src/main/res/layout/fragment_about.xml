@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/team_list_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="About App"
+        android:textStyle="bold"
+        android:layout_margin="4dp"
+        android:textAlignment="textEnd"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent"/>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:gravity="center"
+       android:layout_gravity="center">
+       <ImageView
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:gravity="center"
+           android:src="@drawable/andela_logo"
+           android:layout_gravity="center"/>
+
+       <ImageView
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:src="@drawable/grow_with_google"
+           android:layout_gravity="center"/>
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="-ADD-Team-41-"
+           android:textAlignment="center"
+           android:textStyle="bold"
+           android:textColor="@color/colorPrimary"/>
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Android Phase II Animation Project"
+           android:textAlignment="center"
+           android:textStyle="bold"
+           android:textColor="@color/colorPrimary"/>
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="We grow with google"
+           android:textAlignment="center"
+           android:textColor="@color/colorAccent"/>
+
+
+
+   </LinearLayout>
+
+
+
+</LinearLayout>

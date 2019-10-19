@@ -1,9 +1,9 @@
-package com.team41.aad_team_41_animation_challenge;
+package com.team41.aad_team_41_animation_challenge.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
@@ -13,38 +13,77 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.team41.aad_team_41_animation_challenge.R;
+import com.team41.aad_team_41_animation_challenge.fragment.AboutFragment;
+import com.team41.aad_team_41_animation_challenge.fragment.TeamListFragment;
+import com.team41.aad_team_41_animation_challenge.util.UserPreferences;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
+import android.widget.TextView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
+/**
+ * Created by Michael on 10/18/2019.
+ */
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    //All View are binded here
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.fab)
+    FloatingActionButton mFab;
+    Fragment fragment;
+    UserPreferences userPreferences;
+    TextView user_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        ButterKnife.bind(this);
+        userPreferences=new UserPreferences(this);
+
+        setSupportActionBar(mToolbar);
+
+        fragment = new TeamListFragment();
+        showFragment(fragment);
+
+        mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               share_app();
             }
         });
+
+
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        user_email=navigationView.getHeaderView(0).findViewById(R.id.user_email);
+        user_email.setText(userPreferences.getEmail());
+
+
     }
 
     @Override
@@ -86,21 +125,41 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+            fragment = new TeamListFragment();
+            showFragment(fragment);
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_about_app) {
+            fragment = new AboutFragment();
+            showFragment(fragment);
 
-        } else if (id == R.id.nav_share) {
+        }  else if (id == R.id.nav_share) {
+            share_app();
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_sign_out) {
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //Method to set fragment immediately Onclick
+    private void showFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.fragment_container, fragment);
+        ft.commit();
+    }
+
+//Method that handles app sharing
+    private void share_app(){
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "AAD-Team-41");
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, "We grow with google #growwithgoogle");
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 }
