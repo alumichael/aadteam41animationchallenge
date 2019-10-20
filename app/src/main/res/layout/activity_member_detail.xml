@@ -117,11 +117,11 @@
                 android:id="@+id/info_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="15dp"
                 android:layout_gravity="start|end"
                 android:textSize="16sp"
                 android:textColor="@color/colorBlack"
-                android:text="date/timetttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"/>
+                android:text="date/time"/>
 
         </ScrollView>
 
