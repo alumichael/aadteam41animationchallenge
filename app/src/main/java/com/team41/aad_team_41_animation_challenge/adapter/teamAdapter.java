@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +42,12 @@ public class teamAdapter extends RecyclerView.Adapter<teamAdapter.MyViewHolder> 
     private Context context;
     private List<teamModel> teamModelList;
 
+    @BindView(R.id.list_card)
+    MaterialCardView cardView;
+
+    // Animation variable
+    Animation item_animation;
+
 
     public teamAdapter(Context context, List<teamModel> teamModelList) {
         this.context = context;
@@ -56,6 +65,14 @@ public class teamAdapter extends RecyclerView.Adapter<teamAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
+
+        // load the animation
+        item_animation = AnimationUtils.loadAnimation(context,
+                R.anim.item_animation_scale);
+
+        //start animation
+        cardView.startAnimation(item_animation);
+
         teamModel teamModelOption = teamModelList.get(i);
 
         Log.i("teamModel", teamModelOption.getEmail());
