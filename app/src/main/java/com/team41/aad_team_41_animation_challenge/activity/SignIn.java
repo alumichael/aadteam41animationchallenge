@@ -16,6 +16,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import maes.tech.intentanim.CustomIntent;
 
 public class SignIn extends AppCompatActivity implements View.OnClickListener{
 
@@ -98,6 +99,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener{
                 showMessage("Successfully Sign In");
                 Intent intent=new Intent(SignIn.this, MainActivity.class);
                 startActivity(intent);
+                CustomIntent.customType(this,"up-to-bottom");
                 finish();
 
             }
