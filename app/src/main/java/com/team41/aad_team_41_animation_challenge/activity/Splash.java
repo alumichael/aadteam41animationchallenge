@@ -34,7 +34,7 @@ public class Splash extends AppCompatActivity {
     TextView txtDesc;
 
     // Animation variable
-    Animation slide_from_bottom, blink;
+    Animation slide_from_bottom, blink,slide_from_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class Splash extends AppCompatActivity {
             // load the animation
         slide_from_bottom = AnimationUtils.loadAnimation(getApplicationContext(),
                     R.anim.slide_in_from_buttom);
+
 
             blink = AnimationUtils.loadAnimation(getApplicationContext(),
                     R.anim.blink);

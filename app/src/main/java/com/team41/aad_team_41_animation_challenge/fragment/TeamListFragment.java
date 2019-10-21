@@ -126,6 +126,12 @@ public class TeamListFragment extends Fragment implements SwipeRefreshLayout.OnR
         m = new teamModel("Pius Aboyi", "Apeapius@gmail.com","Male","+2348060386628","Active","https://res.cloudinary.com/adekunle-ajasin-university-akungba-akoko/image/upload/v1571430502/samples/IMG-20191018-WA0021.jpg");
         teamModelList.add(m);
 
+        m = new teamModel("Oluwadamilola Ogunwale Mary", "Oluwadamilolaogunwale@yahoo.com","Female","+2347061241169","Active","https://res.cloudinary.com/adekunle-ajasin-university-akungba-akoko/image/upload/v1571608753/samples/IMG-20191020-WA0005.jpg");
+        teamModelList.add(m);
+
+        m = new teamModel("Onda Agnes", "agnesonda@gmail.com","Female","+2347038635594","Active","https://res.cloudinary.com/adekunle-ajasin-university-akungba-akoko/image/upload/v1571608753/samples/IMG-20191020-WA0022.jpg");
+        teamModelList.add(m);
+
         int count = teamModelList.size();
 
         Log.i("Re-SuccessSize", String.valueOf(teamModelList.size()));
