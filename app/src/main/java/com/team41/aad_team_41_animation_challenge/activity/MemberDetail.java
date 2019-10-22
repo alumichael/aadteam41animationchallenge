@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -89,11 +90,24 @@ public class MemberDetail extends AppCompatActivity {
             Glide.with(this).load(img).apply(new RequestOptions().fitCenter()).into(this.mUserImg);
             mProgress.setVisibility(View.GONE);
         }
-
+        fadeInAnimation();
+        fadeOutAnimation();
 
     }
 
 
+    private void fadeInAnimation(){
+        Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
+        mName.startAnimation(fadeIn);
+        mEmail.startAnimation(fadeIn);
+        mGender.startAnimation(fadeIn);
+        mPhoneNum.startAnimation(fadeIn);
+    }
+
+    private void fadeOutAnimation(){
+        Animation fadeOut = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
+        mInfo_txt.startAnimation(fadeOut);
+    }
     private void applyToolbarChildren(String title) {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
